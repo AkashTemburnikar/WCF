@@ -1,0 +1,40 @@
+﻿@model IEnumerable<MvcApp.Models.User>  
+  
+@{  
+    ViewBag.Title = "Index";  
+}  
+  
+  
+@using (Html.BeginForm()){  
+    <div>  
+        <h2>User Details</h2>  
+         @Html.ActionLink("Add User", "Add", "")  
+    </div>  
+    <div>  
+         <table >  
+            @{  
+                foreach (var item in Model)  
+                {  
+                <tr style="background-color: #FFFFF0">  
+                    <td>  
+                        @item.Name  
+                    </td>  
+                    <td>  
+                        @item.Email  
+                    </td>  
+                     
+                    <td>  
+                        @Html.ActionLink("Edit", "Edit", new { id = @item.Id }) /@Html.ActionLink("Delete", "Delete", new {id=@item.Id })   
+                         
+                    </td>  
+                     
+                </tr>  
+                }  
+            }  
+  
+        </table>  
+  
+    </div>  
+     
+  
+}  

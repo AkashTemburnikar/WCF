@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="MyService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:60083/MyService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:60083/MyService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:60083/MyService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/WcfServiceApp" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IMyService_GetAllUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllUser" />
+  </wsdl:message>
+  <wsdl:message name="IMyService_GetAllUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMyService_AddUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddUser" />
+  </wsdl:message>
+  <wsdl:message name="IMyService_AddUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMyService_GetAllUserById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllUserById" />
+  </wsdl:message>
+  <wsdl:message name="IMyService_GetAllUserById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllUserByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMyService_UpdateUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUser" />
+  </wsdl:message>
+  <wsdl:message name="IMyService_UpdateUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMyService_DeleteUserById_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUserById" />
+  </wsdl:message>
+  <wsdl:message name="IMyService_DeleteUserById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUserByIdResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IMyService">
+    <wsdl:operation name="GetAllUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMyService/GetAllUser" message="tns:IMyService_GetAllUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMyService/GetAllUserResponse" message="tns:IMyService_GetAllUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMyService/AddUser" message="tns:IMyService_AddUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMyService/AddUserResponse" message="tns:IMyService_AddUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUserById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMyService/GetAllUserById" message="tns:IMyService_GetAllUserById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMyService/GetAllUserByIdResponse" message="tns:IMyService_GetAllUserById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMyService/UpdateUser" message="tns:IMyService_UpdateUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMyService/UpdateUserResponse" message="tns:IMyService_UpdateUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUserById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMyService/DeleteUserById" message="tns:IMyService_DeleteUserById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMyService/DeleteUserByIdResponse" message="tns:IMyService_DeleteUserById_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IMyService" type="tns:IMyService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetAllUser">
+      <soap:operation soapAction="http://tempuri.org/IMyService/GetAllUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddUser">
+      <soap:operation soapAction="http://tempuri.org/IMyService/AddUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUserById">
+      <soap:operation soapAction="http://tempuri.org/IMyService/GetAllUserById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUser">
+      <soap:operation soapAction="http://tempuri.org/IMyService/UpdateUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUserById">
+      <soap:operation soapAction="http://tempuri.org/IMyService/DeleteUserById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MyService">
+    <wsdl:port name="BasicHttpBinding_IMyService" binding="tns:BasicHttpBinding_IMyService">
+      <soap:address location="http://localhost:60083/MyService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
